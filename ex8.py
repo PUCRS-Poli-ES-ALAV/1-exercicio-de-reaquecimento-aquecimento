@@ -1,14 +1,11 @@
-def is_palindrome(s: str, _idx: int = 0) -> bool:
-    if _idx > (len(s) - 1) / 2:
+def is_palindrome(s: str) -> bool: 
+    if len(s) < 2:
         return True
-    
-    a = s[_idx]
-    b = s[len(s) - _idx - 1]
 
-    if a != b: 
+    if s[0] != s[-1]:
         return False
-    else:
-        return is_palindrome(s, _idx + 1)
+
+    return is_palindrome(s[1:-1])
 
 def test_is_palindrome(s: str):
     print(f'It is {str(is_palindrome(s)).lower()} that {s} is a palindrome.')
@@ -22,4 +19,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
