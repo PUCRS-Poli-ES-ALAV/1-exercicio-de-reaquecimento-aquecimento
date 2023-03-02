@@ -1,17 +1,8 @@
-def rev_str(s: str, _idx: int = 0) -> str:
-    tmp = s[_idx]
-    reverse_idx = len(s) - _idx - 1
+def rev_str(s: str) -> str: 
+    if len(s) < 2:
+        return s
 
-    res = replace_at(s, s[reverse_idx], _idx)
-    res = replace_at(res, tmp, reverse_idx)
-
-    if _idx == (len(s) - 1) // 2:
-        return res
-    else:
-        return rev_str(res, _idx + 1)
-
-def replace_at(s: str, replacement: str, idx: int):
-    return s[:idx] + replacement + s[idx + 1:]
+    return s[-1] + rev_str(s[1:-1]) + s[0]
 
 def main():
     s = "Testando!"
